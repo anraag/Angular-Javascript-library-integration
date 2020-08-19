@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "js-lib-example": {
@@ -21,12 +21,21 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/chessboardjs/www/releases/0.3.0/img",
+                "output": "./img"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/chessboardjs/www/releases/0.3.0/css/chessboard-0.3.0.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/chessboardjs/www/releases/0.3.0/js/chessboard-0.3.0.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -85,12 +94,21 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/chessboardjs/www/releases/0.3.0/img",
+                "output": "./img"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/chessboardjs/www/releases/0.3.0/css/chessboard-0.3.0.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/chessboardjs/www/releases/0.3.0/js/chessboard-0.3.0.js"
+            ]
           }
         },
         "lint": {
@@ -101,9 +119,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -119,6 +135,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "js-lib-example"
 }
